@@ -1,0 +1,88 @@
+.blob {
+    position: relative;
+    border-radius: 43% 57% 52% 48% / 48% 43% 57% 52%;
+    background: 
+        radial-gradient(
+            at var(--primary-x, 60%) var(--primary-y, 40%),
+            rgba(164, 230, 21, 0.50) 25%,
+            rgba(164, 230, 21, 0.33) 12%,
+            rgba(194, 235, 135, 0.25) 0%
+        ),
+        radial-gradient(
+            at var(--accent-x, 30%) var(--accent-y, 60%),
+            rgba(216, 180, 242, 0.5) 0%,
+            rgba(216, 180, 242, 0.2) 25%,
+            rgba(216, 180, 242, 0) 50%
+        );
+    filter: blur(25px);
+    animation: 
+        blob-movement 7s ease-in-out infinite,
+        gradient-positions 10s ease-in-out infinite;
+    mix-blend-mode: multiply;
+}
+
+@keyframes blob-movement {
+    0%, 100% {
+        border-radius: 43% 57% 52% 48% / 48% 43% 57% 52%;
+    }
+    25% {
+        border-radius: 57% 43% 48% 52% / 52% 57% 43% 48%;
+    }
+    50% {
+        border-radius: 48% 52% 57% 43% / 43% 48% 52% 57%;
+    }
+    75% {
+        border-radius: 52% 48% 43% 57% / 57% 52% 48% 43%;
+    }
+}
+
+@property --primary-x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 60%;
+}
+
+@property --primary-y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 40%;
+}
+
+@property --accent-x {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 30%;
+}
+
+@property --accent-y {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 60%;
+}
+
+@keyframes gradient-positions {
+    0%, 100% {
+        --primary-x: 60%;
+        --primary-y: 40%;
+        --accent-x: 30%;
+        --accent-y: 60%;
+    }
+    25% {
+        --primary-x: 30%;
+        --primary-y: 60%;
+        --accent-x: 60%;
+        --accent-y: 40%;
+    }
+    50% {
+        --primary-x: 40%;
+        --primary-y: 30%;
+        --accent-x: 60%;
+        --accent-y: 60%;
+    }
+    75% {
+        --primary-x: 60%;
+        --primary-y: 60%;
+        --accent-x: 40%;
+        --accent-y: 30%;
+    }
+}
