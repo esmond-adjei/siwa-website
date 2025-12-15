@@ -16,7 +16,7 @@ export default function PartnerSection() {
                 <div 
                     className="relative"
                 >
-                    <div className={`flex gap-10 items-center justify-evenly`}>
+                    <div className={`flex gap-10 items-center justify-evenly flex-wrap`}>
                         {allIcons.map((item, index) => (
                             <a href={item.href} target="_blank" rel="noopener noreferrer" key={`${item.id}-${index}`}>
                                 <div 

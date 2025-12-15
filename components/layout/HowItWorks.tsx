@@ -113,9 +113,9 @@ export default function FeaturesSection() {
                     <div className="absolute inset-0 bg-linear-to-r from-primary-400 to-primary-600 rounded-[3rem] blur-2xl opacity-20 group-hover:opacity-30 transition-opacity"></div>
                     
                     {/* Phone Container */}
-                    <div className="relative w-60 md:w-80 bg-black rounded-[3rem] p-3 shadow-2xl transform transition-transform duration-300">
+                    <div className="relative w-60 md:w-80 bg-black rounded-4xl md:rounded-[3rem] p-3 shadow-2xl transform transition-transform duration-300">
                       {/* Screen */}
-                      <div className="relative bg-transparent rounded-[2.5rem] overflow-hidden aspect-9/19">
+                      <div className="relative bg-transparent rounded-3xl md:rounded-[2.5rem] overflow-hidden aspect-9/19">
                         {/* Notch */}
                         <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-black h-6 w-1/2 rounded-b-3xl"/>
                         

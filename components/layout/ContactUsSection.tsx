@@ -36,18 +36,18 @@ const ContactUs = () => {
                 <h2 className="text-3xl font-semibold mb-6">
                     Join us in building <span className="highlight">climate-resilient</span> agriculture
                 </h2>
-                <div className="hcc gap-6">
+                <div className="hcc gap-6 flex-wrap">
                     <Link
                         href={ROUTES.appDownload}
-                        className="cta-btn text-xl px-8! py-4! group inline-flex items-center justify-center gap-2 active:scale-95 bg-black! text-white! font-semibold"
+                        className="cta-btn w-full md:w-max text-xl px-8! py-4! group inline-flex items-center justify-center gap-2 active:scale-95 bg-black! text-white! font-semibold"
                     >
                         <Image src="/playstore.png" alt="Get it on Google Play" width={24} height={24} />
                         <span className="text-nowrap">Download App</span>
                     </Link>
 
-                    <Link
+                    {/* <Link
                         href={ROUTES.waitingList}
-                        className="cta-btn text-xl px-8! py-4! bg-primary! hover:bg-primary-300! hover:text-primary! group"
+                        className="cta-btn w-full md:w-max hcc text-xl px-8! py-4! bg-primary! hover:bg-primary-300! hover:text-primary! group"
                     >
                         <span className="text-nowrap">Join the Waitlist</span>
                         <span className="w-0 group-hover:w-7 transition-[width] duration-300 ease-out">
@@ -56,7 +56,7 @@ const ContactUs = () => {
                                 className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100" 
                             />
                         </span>
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </div>

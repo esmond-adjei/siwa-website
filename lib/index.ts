@@ -6,10 +6,10 @@ export const BASE_URL =
 export const ROUTES = {
     home: '/',
     about: '/#about',
-    waitingList: '/waiting-list',
     appDownload: 'https://play.google.com/store/search?q=smart%20indigenous%20weather%20app',
-
+    
     features: '/#features',
-    team: '/#impact',
+    impact: '/#impact',
     contact: '/#contact-us',
+    waitingList: '/#contact-us',
 }

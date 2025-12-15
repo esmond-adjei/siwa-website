@@ -6,7 +6,7 @@ import { AppIconName } from './SiteLogo';
 const MENU_ITEMS = [
   { name: 'Home', route: ROUTES.home },
   { name: 'About', route: ROUTES.about },
-  { name: 'Impact', route: ROUTES.team },
+  { name: 'Impact', route: ROUTES.impact },
   { name: 'Features', route: ROUTES.features },
   { name: 'Contact Us', route: ROUTES.contact },
 ];
@@ -37,7 +37,7 @@ export default function Footer() {
               {
                 MENU_ITEMS.map((item) => (
                   <Link
-                    key={item.name}
+                    key={item.name+item.route}
                     href={item.route}
                     className="block text-secondary text-sm hover:text-black transition"
                   >

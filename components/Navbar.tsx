@@ -11,7 +11,7 @@ import { AppIconName } from './SiteLogo';
 const MENU_ITEMS = [
   { name: 'Home', route: ROUTES.home },
   { name: 'About', route: ROUTES.about },
-  { name: 'Impact', route: ROUTES.team },
+  { name: 'Impact', route: ROUTES.impact },
   { name: 'Features', route: ROUTES.features },
   { name: 'Contact Us', route: ROUTES.contact },
 ];
@@ -79,7 +79,7 @@ export default function Navbar() {
         <div className="gap-4 hidden md:flex items-center">
           {MENU_ITEMS.map((item) => (
             <Link
-              key={item.route}
+              key={item.route+item.name}
               href={item.route}
               className={isActive(item.route) ? `${navTheme} active` : navTheme}
             >
@@ -103,13 +103,13 @@ export default function Navbar() {
 
         <div
           className={`${mobileMenuOpen
-              ? 'absolute top-20 left-0 h-screen transition-all duration-300'
+              ? 'absolute top-16 left-0 h-screen transition-all duration-300'
               : 'hidden'
           } w-full`}
         >
           <div
             ref={menuRef}
-            className="drawer *:block space-y-0.5 flex flex-col px-10 py-4 pt-8 text-black bg-white rounded-xl shadow-lg"
+            className="drawer mx-3 *:block space-y-0.5 flex flex-col px-10 py-4 pt-8 text-black bg-white rounded-xl shadow-lg"
             aria-expanded={mobileMenuOpen}
             style={{
               ['--drawer-height-final' as string]: '100%',
@@ -118,7 +118,7 @@ export default function Navbar() {
           >
             {MENU_ITEMS.map((item) => (
               <Link
-                key={item.route}
+                key={item.route+item.name}
                 href={item.route}
                 className={isActive(item.route) ? 'menu-item active' : 'menu-item'}
               >

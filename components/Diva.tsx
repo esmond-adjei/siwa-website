@@ -14,7 +14,6 @@ export default function Diva({ className = '' }: DivaProps) {
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
   const imageClasses = 'absolute w-1/2 rounded-xl transition-all duration-200 ease-out';
-  // const imageClasses = 'absolute w-1/2 rounded-xl shadow-2xl transition-all duration-200 ease-out';
 
   // Handle mouse move event with requestAnimationFrame for smoother handling
   const handleMouseMove = useCallback((event: MouseEvent) => {
@@ -97,7 +96,7 @@ export default function Diva({ className = '' }: DivaProps) {
           width={800}
           height={600}
           style={{ transform: get3DTransform(0, -200) }}
-          className={`${imageClasses} w-full lg:w-2/3 top-0 z-40 md:block md:top-40 -right-55 md:z-30 hover:scale-105`}
+          className={`${imageClasses} w-full md:w-2/3 top-0 z-40 md:block md:top-40 -right-55 md:z-30 hover:scale-105`}
         />
       </div>
     </div>

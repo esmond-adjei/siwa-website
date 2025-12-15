@@ -22,14 +22,14 @@ export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   };
 
   return (
-    <div className={`bg-gray-100 rounded-xl px-4 ${className}`}>
+    <div className={`bg-gray-100 rounded-xl px-4 group ${className}`}>
         {/* TOGGLE */}
       <button
         onClick={toggleExpansion}
         className="flex items-center justify-between w-full text-left"
       >
         {/* heading */}
-        <h2 className="text-xl font-medium text-black/80 group-hover:text-primaryBright">
+        <h2 className="text-xl font-normal md:font-medium text-black/80 group-hover:text-accent transition-color duration-200">
           {title}
         </h2>
 
