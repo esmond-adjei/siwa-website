@@ -1,10 +1,9 @@
 'use client'
 import React, { useState, ReactNode } from 'react';
-import { Plus, Minus, ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 interface ExpandableSectionProps {
   title: string;
-  variant?: 'accordion' | 'dropdown';
   expanded?: boolean;
   className?: string;
   children: ReactNode;
@@ -12,7 +11,6 @@ interface ExpandableSectionProps {
 
 export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   title,
-  variant = 'accordion',
   expanded = false,
   className = '',
   children,
@@ -31,26 +29,18 @@ export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
         className="flex items-center justify-between w-full text-left"
       >
         {/* heading */}
-        {variant === 'accordion' ? (
-          <h2 className="text-xl font-medium text-dark group-hover:text-primaryBright">
-            {title}
-          </h2>
-        ) : (
-          <p className="font-sans text-dark">{title}</p>
-        )}
+        <h2 className="text-xl font-medium text-black/80 group-hover:text-primaryBright">
+          {title}
+        </h2>
 
         {/* icon */}
-        {variant === 'dropdown' ? (
+        {
           isExpanded ? (
-            <ChevronUp className="size-5 text-dark/60" />
+            <ChevronUp className="size-5 text-black/60" />
           ) : (
-            <ChevronDown className="size-5 text-dark/60" />
+            <ChevronDown className="size-5 text-black/60" />
           )
-        ) : isExpanded ? (
-          <Minus className="size-5 text-dark/60" />
-        ) : (
-          <Plus className="size-5 text-dark/60" />
-        )}
+        }
       </button>
       
       {/* CONTENT */}

@@ -5,9 +5,11 @@ export const BASE_URL =
 
 export const ROUTES = {
     home: '/',
-    about: '#about',
+    about: '/#about',
     waitingList: '/waiting-list',
+    appDownload: 'https://play.google.com/store/search?q=smart%20indigenous%20weather%20app',
 
-    team: '#team',
-    contact: '#contact-us',
+    features: '/#features',
+    team: '/#impact',
+    contact: '/#contact-us',
 }

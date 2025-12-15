@@ -11,7 +11,8 @@ import { AppIconName } from './SiteLogo';
 const MENU_ITEMS = [
   { name: 'Home', route: ROUTES.home },
   { name: 'About', route: ROUTES.about },
-  { name: 'Our Team', route: ROUTES.team },
+  { name: 'Impact', route: ROUTES.team },
+  { name: 'Features', route: ROUTES.features },
   { name: 'Contact Us', route: ROUTES.contact },
 ];
 
@@ -46,35 +47,33 @@ export default function Navbar() {
     };
   }, []);
 
-  const navTheme = `menu-item hover:!text-black ${
+  const navTheme = `menu-item text-primary-600 ${
     isScrolled ? '!text-black' : '!text-light'
   }`;
 
   return (
     <motion.header
-      className="fixed w-full top-0 z-50"
+      className="fixed w-full top-0 p-2 z-50"
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       <div
-        className={`hcb flex-wrap p-4 m-2 lg:px-10 transition-all duration-200 ${
+        className={`hcb flex-wrap p-4 lg:px-10 max-w-360 mx-auto transition-all duration-200 ${
           isScrolled
             ? 'bg-white/50 backdrop-blur-md shadow-sm text-black m-2 rounded-xl'
             : 'bg-transparent text-light'
         }`}
       >
         {/* main site logo */}
-        <div>
-          <Link
-            href="/"
-            className={`text-2xl font-heading font-bold ${
-              isScrolled ? 'text-primary' : 'text-light'
-            }`}
-          >
-            <AppIconName size={40} theme={isScrolled ? 'light' : 'dark'} />
-          </Link>
-        </div>
+        <Link
+          href="/"
+          className={`text-2xl font-heading font-bold ${
+            isScrolled ? 'text-primary' : 'text-light'
+          }`}
+        >
+          <AppIconName size={40} theme={isScrolled ? 'light' : 'dark'} />
+        </Link>
 
         {/* show for only larger than mobile-size screens */}
         <div className="gap-4 hidden md:flex items-center">
@@ -104,13 +103,13 @@ export default function Navbar() {
 
         <div
           className={`${mobileMenuOpen
-              ? 'absolute -top-4 left-0 h-screen transition-all duration-300'
+              ? 'absolute top-20 left-0 h-screen transition-all duration-300'
               : 'hidden'
           } w-full`}
         >
           <div
             ref={menuRef}
-            className="drawer *:block space-y-0.5 flex flex-col px-10 py-4 pt-8 text-black bg-white backdrop-blur-lg rounded-b-3xl shadow-2xl"
+            className="drawer *:block space-y-0.5 flex flex-col px-10 py-4 pt-8 text-black bg-white rounded-xl shadow-lg"
             aria-expanded={mobileMenuOpen}
             style={{
               ['--drawer-height-final' as string]: '100%',

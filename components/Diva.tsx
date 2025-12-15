@@ -13,7 +13,8 @@ interface MousePosition {
 export default function Diva({ className = '' }: DivaProps) {
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
-  const imageClasses = 'absolute w-1/2 rounded-xl shadow-2xl transition-all duration-200 ease-out';
+  const imageClasses = 'absolute w-1/2 rounded-xl transition-all duration-200 ease-out';
+  // const imageClasses = 'absolute w-1/2 rounded-xl shadow-2xl transition-all duration-200 ease-out';
 
   // Handle mouse move event with requestAnimationFrame for smoother handling
   const handleMouseMove = useCallback((event: MouseEvent) => {
@@ -65,36 +66,38 @@ export default function Diva({ className = '' }: DivaProps) {
   }, [mousePosition]);
 
   return (
-    <div ref={containerRef} className={`relative h-150 ${className}`}>
+    <div ref={containerRef} className={`relative h-50 md:h-150 ${className}`}>
       <div className="absolute inset-0 flex items-center justify-center">
         {/* Top Image - Furthest out */}
         <Image
-          src="/images/app-dashboard.png"
+          // src="/images/app-dashboard.png"
+          src="/images/app-splash.png"
           alt="app dashboard interface"
           width={800}
           height={600}
           style={{ transform: get3DTransform(100) }}
-          className={`${imageClasses} w-full lg:w-2/3 top-1/4 lg:top-1/5 z-30 hover:scale-105`}
+          className={`${imageClasses} hidden md:block lg:w-2/3 top-1/4 lg:top-1/5 z-40 hover:scale-105`}
         />
 
         {/* Bottom Right Image - Middle distance */}
         <Image
-          src="/images/app-class-analytics.png"
+          src="/images/app-home.png"
           alt="app analytics interface"
           width={800}
           height={600}
-          style={{ transform: get3DTransform(50, 200) }}
+          style={{ transform: get3DTransform(0, 200) }}
           className={`${imageClasses} hidden md:block top-40 -left-55 z-20 hover:scale-105`}
         />
 
         {/* Bottom Left Image - Closest */}
         <Image
-          src="/images/app-test-2.png"
+          // src="/images/app-test-2.png"
+          src="/images/app-prediction.png"
           alt="app test interface"
           width={800}
           height={600}
           style={{ transform: get3DTransform(0, -200) }}
-          className={`${imageClasses} hidden md:block top-40 -right-55 z-40 hover:scale-105`}
+          className={`${imageClasses} w-full lg:w-2/3 top-0 z-40 md:block md:top-40 -right-55 md:z-30 hover:scale-105`}
         />
       </div>
     </div>

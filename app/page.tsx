@@ -1,29 +1,33 @@
 import HeroSection from "@/components/layout/HeroSection";
-import MissionSection from "@/components/layout/MissionSection";
+import PartnerSection from "@/components/layout/PartnerSection";
 import OurTeam from "@/components/layout/OurTeamSection";
-import ImpactSection from "@/components/layout/ImpactSection";
+import BackgroundSection from "@/components/layout/BackgroundSection";
 import HowItWorksSection from "@/components/layout/HowItWorks";
 import ActivitiesSection from "@/components/layout/ActivitiesSection";
 import FAQSection from "@/components/layout/FAQSection";
+import ContactUs from "@/components/layout/ContactUsSection";
 
 export default function Home() {
   return (
   <>
     <HeroSection />
-    <ImpactSection />
+    <BackgroundSection />
     <ActivitiesSection />
     <HowItWorksSection />
-    {/* <MissionSection /> */}
-    {/* <OurTeam /> */}
+    {/* <OurTeam /> -> AI Tech, Mission/Vision */}
     <FAQSection />
-    {/* partners (dipperlab, rail, iau, knust) */}
+    <PartnerSection />
     {/* contact, download */}
+    <ContactUs />
+
 
     {/* 
      - get play store logo
      - get app screenshots and mockups
      - get logo and brand colors
      - review content
+     - resize image
+     - section navs
      */}
   </>
   );

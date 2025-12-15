@@ -30,14 +30,14 @@ export function AppIconName({
     theme='light'
 }: SiteLogoProps) {
     return (
-        <div className="inline-block">
-            <h1 className={`text-4xl text-primary ${theme === 'light' ? 'text-primary-800' : 'text-primary-900'}`}>SIWA</h1>
+        <div className="flex items-center gap-2">
+            <Image 
+                src={theme === 'light' ? '/SIWA-logo.svg' : '/SIWA-logo.svg'}
+                alt='smart indigenous weather app'
+                height={size}
+                width={size}
+            />
+            <h1 className={`text-2xl text-primary-900 ${theme === 'light' ? 'text-primary-900' : 'text-primary-900'}`}>SIWA</h1>
         </div>
-        // <Image 
-        //     src={theme === 'light' ? '/images/app-icon-name-dark.png' : '/images/app-icon-name-light.png'}
-        //     alt='app icon with name'
-        //     height={size}
-        //     width={size * 3}
-        // />
     );
 }
