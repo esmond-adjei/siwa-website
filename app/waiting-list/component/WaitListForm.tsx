@@ -47,7 +47,6 @@ const WaitlistForm = () => {
     setSubmitStatus({ type: '', message: '' });
 
     try {
-        console.log(formData);
       const response = await fetch('/api/waitlist', {
         method: 'POST',
         headers: {

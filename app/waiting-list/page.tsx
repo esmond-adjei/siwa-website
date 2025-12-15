@@ -2,6 +2,7 @@
 import React from 'react';
 import WaitlistForm from './component/WaitListForm';
 import { motion } from 'framer-motion';
+import { Suspense } from 'react'
 
 
 const AboutUsPage: React.FC = () => {
@@ -26,7 +27,9 @@ const AboutUsPage: React.FC = () => {
           Join the SIWA Waitlist
         </h1>
         <div className="max-w-4xl mx-auto">
-          <WaitlistForm />
+          <Suspense>
+            <WaitlistForm />
+          </Suspense>
         </div>
       </section>
     </motion.div>
