@@ -33,11 +33,11 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'DIPPER Lab',
-    template: '%s | DIPPER Lab',
+    default: 'SIWA - Smart Indigenous Weather App',
+    template: '%s | SIWA',
   },
-  description: 'Distributed IoT Platforms, Privacy, and Edge-Intelligence Research Lab',
-  keywords: ['IoT', 'blockchain', 'artificial intelligence', 'research', 'technology', 'edge intelligence'],
+  description: 'SIWA combines traditional ecological knowledge with AI to provide climate-smart weather forecasting for Ghanaian farmers.',
+  keywords: [ 'SIWA', 'Smart Indigenous Weather App', 'Climate Resilience', 'Agriculture', 'Ghana', 'Weather Forecasting', 'AI', 'Indigenous Knowledge', 'Smallholder Farmers' ],
   authors: [{ name: 'DIPPER Lab Team' }],
   robots: 'index, follow',
 };
