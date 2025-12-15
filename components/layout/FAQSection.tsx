@@ -48,15 +48,17 @@ export default function FAQSection() {
     <section className={`section py-15`}>
         <div className="max-w-4xl mx-auto">
             <h2 className='heading-1 mb-4'>Frequently Asked Questions (FAQs)</h2>
-            {FAQS.map((faq, idx) => (
-            <ExpandableSection 
-                key={idx} 
-                title={faq.question}
-                className='py-4'
-            >
-                <p className='text-gray-600 pb-4'>{faq.answer}</p>
-            </ExpandableSection>
-            ))}
+            <div className="space-y-2">
+              {FAQS.map((faq, idx) => (
+              <ExpandableSection 
+                  key={idx} 
+                  title={faq.question}
+                  className='py-4'
+              >
+                  <p className='text-gray-600 pb-4'>{faq.answer}</p>
+              </ExpandableSection>
+              ))}
+          </div>
         </div>
     </section>
   );

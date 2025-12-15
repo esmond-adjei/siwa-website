@@ -22,7 +22,7 @@ export const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   };
 
   return (
-    <div className={`border-t border-gray-200 ${className}`}>
+    <div className={`bg-gray-100 rounded-xl px-4 ${className}`}>
         {/* TOGGLE */}
       <button
         onClick={toggleExpansion}
