@@ -68,10 +68,10 @@ export default function Hero() {
               <span>Download App</span>
             </Link>
             <Link
-              href={ROUTES.waitingList}
+              href={ROUTES.about}
               className="cta-btn text-xl px-8! py-4! text-nowrap rounded-xl! bg-white! text-black! hcc font-semibold! active:scale-95 hover:bg-secondary transition-all duration-200"
             >
-              Join the Waitlist
+              Learn More
             </Link>
           </div>
 
