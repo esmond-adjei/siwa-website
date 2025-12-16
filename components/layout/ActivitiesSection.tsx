@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useMotionValue } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 interface ImpactCard {
@@ -51,23 +51,39 @@ const impacts: ImpactCard[] = [
 export default function ActivitiesSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [dragLimit, setDragLimit] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const x = useMotionValue(0);
 
   useEffect(() => {
     if (!trackRef.current) return;
+    const updateLimit = () => {
+      setDragLimit(trackRef.current!.scrollWidth - trackRef.current!.offsetWidth + 100);
+    };
 
-    const container = trackRef.current;
-    const maxDrag = container.scrollWidth - container.offsetWidth + 100;
-
-    setDragLimit(maxDrag);
+    updateLimit();
+    window.addEventListener("resize", updateLimit);
+    return () => window.removeEventListener("resize", updateLimit);
   }, []);
+
+  // Update active index based on horizontal scroll position
+  useEffect(() => {
+    return x.onChange((latest) => {
+      // Calculate card width based on Tailwind classes (w-180 is 720px)
+      const cardWidth = window.innerWidth < 768 ? window.innerWidth * 0.85 : 720;
+      const index = Math.round(Math.abs(latest) / cardWidth);
+      if (index !== activeIndex && index >= 0 && index < impacts.length) {
+        setActiveIndex(index);
+      }
+    });
+  }, [x, activeIndex]);
 
   return (
     <section id="impact" className="bg-white py-14 md:py-20 overflow-hidden">
       <div className="mb-12 text-center max-w-4xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 font-heading">
           Climate Resilience in Action.
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-sans">
           SIWA is bridging indigenous wisdom and modern technology to transform smallholder farming across Ghana&apos;s Pra River Basin
         </p>
       </div>
@@ -76,18 +92,23 @@ export default function ActivitiesSection() {
         <motion.div
           ref={trackRef}
           drag="x"
+          style={{ x }}
           dragConstraints={{ left: -dragLimit, right: 0 }}
           dragElastic={0.06}
           className="flex gap-6 md:gap-8 px-4 md:px-12 cursor-grab active:cursor-grabbing"
         >
           {impacts.map((impact, index) => (
-            <Card key={index} impact={impact} />
+            <Card 
+              key={index} 
+              impact={impact} 
+              isActive={activeIndex === index} 
+            />
           ))}
         </motion.div>
       </div>
 
       <div className="text-center mt-12 px-4">
-        <p className="text-sm md:text-base text-gray-500 italic">
+        <p className="text-sm md:text-base text-gray-500 italic font-sans">
           Real impact from communities across Ashanti, Eastern, and Central regions
         </p>
       </div>
@@ -95,57 +116,55 @@ export default function ActivitiesSection() {
   );
 }
 
-function Card({ impact }: { impact: ImpactCard }) {
+function Card({ impact, isActive }: { impact: ImpactCard; isActive: boolean }) {
   return (
     <motion.div
       initial="collapsed"
+      animate={isActive ? "expanded" : "collapsed"}
       whileHover="expanded"
-      className="relative shrink-0 w-[85vw] sm:w-[65vw] md:w-180 aspect-4/5 md:aspect-5/3 rounded-3xl overflow-hidden bg-gray-100 shadow-xl group"
+      className="relative shrink-0 w-[85vw] sm:w-[65vw] md:w-180 aspect-4/5 md:aspect-5/3 rounded-3xl overflow-hidden bg-gray-100 shadow-xl transition-all duration-500"
     >
-      {/* Background Image with slight scale on hover */}
       <motion.div
         variants={{
           collapsed: { scale: 1 },
-          expanded: { scale: 1.05 }
+          expanded: { scale: 1.05 },
         }}
         transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${impact.image})` }}
       />
 
-      {/* Dark Gradient Overlay */}
       <div
         className="absolute inset-0"
         style={{
-          background: `linear-gradient(to top, ${impact.theme || "#000"} 0%, rgba(0,0,0,0.4) 60%, transparent 100%)`,
+          background: `linear-gradient(to top, ${
+            impact.theme || "#000"
+          } 0%, rgba(0,0,0,0.4) 60%, transparent 100%)`,
         }}
       />
 
-      {/* Content Container - Anchored to Bottom */}
       <div className="absolute bottom-0 inset-x-0 p-6 md:p-8 lg:p-10 flex flex-col justify-end">
-        
-        {/* Badge & Title */}
         <div className="relative z-10">
-          <span className="inline-block mb-3 px-4 py-1.5 rounded-full text-xs text-white bg-white/20 backdrop-blur-md border border-white/20 shadow-xs">
+          <span className="inline-block mb-3 px-4 py-1.5 rounded-full text-xs font-sans text-white bg-white/20 backdrop-blur-md border border-white/20 shadow-xs">
             {impact.impact}
           </span>
-          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white leading-tight drop-shadow-xs">
+          <h3 className="text-xl md:text-2xl lg:text-3xl font-bold font-heading text-white leading-tight drop-shadow-xs">
             {impact.title}
           </h3>
         </div>
+        
         <motion.div
           variants={{
             collapsed: { height: 0, opacity: 0, marginTop: 0 },
-            expanded: { height: "auto", opacity: 1, marginTop: 12 }
+            expanded: { height: "auto", opacity: 1, marginTop: 12 },
           }}
           transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
           className="overflow-hidden"
         >
-          <p className="text-white/90 text-xs md:text-sm max-w-2xl">
+          <p className="text-white/90 text-xs md:text-sm font-sans max-w-2xl">
             {impact.description}
           </p>
         </motion.div>
-
       </div>
     </motion.div>
   );

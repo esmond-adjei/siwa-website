@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import { ROUTES } from '@/lib';
 import { AppIconName } from './SiteLogo';
 
