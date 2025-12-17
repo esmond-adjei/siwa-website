@@ -6,6 +6,7 @@ export default function PartnerSection() {
         { Icon: 'rail-logo.png', id: 3, name: 'Respnosible AI Lab', href: 'https://rail.knust.edu.gh' },
         { Icon: 'knust.svg', id: 4, name: 'KNSUT', href: 'https://knust.edu.gh' },
         { Icon: 'FarLeaf.png', id: 4, name: 'FAR-Leaf', href: 'https://www.futureafrica.science/farleaf' },
+        { Icon: 'ifs.jpg', id: 4, name: 'IFS - International Foundation for Science', href: 'https://www.ifs.se' },
     ];
 
     // Double the icons for seamless loop
