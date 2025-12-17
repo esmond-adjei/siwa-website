@@ -4,7 +4,8 @@ export default function PartnerSection() {
         { Icon: 'dipperlab-logo.png', id: 1, name: 'Dipper Lab', href: 'https://dipperlab.knust.edu.com' },
         { Icon: 'AIFDA.png', id: 2, name: 'AI for Development in Africa', href: 'https://www.ai4d.ai' },
         { Icon: 'rail-logo.png', id: 3, name: 'Respnosible AI Lab', href: 'https://rail.knust.edu.gh' },
-        // { Icon: 'british-council.svg', id: 4, name: 'British Council', href: 'https://www.britishcouncil.org.gh' },
+        { Icon: 'knust.svg', id: 4, name: 'KNSUT', href: 'https://knust.edu.gh' },
+        { Icon: 'FarLeaf.png', id: 4, name: 'FAR-Leaf', href: 'https://www.futureafrica.science/farleaf' },
     ];
 
     // Double the icons for seamless loop
@@ -13,6 +14,7 @@ export default function PartnerSection() {
     return (
         <section className="section bg-background py-16 overflow-hidden">
             <div className="container mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Sponsors</h2>
                 <div 
                     className="relative"
                 >
